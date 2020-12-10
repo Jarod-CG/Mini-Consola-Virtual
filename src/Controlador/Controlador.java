@@ -4,7 +4,6 @@ package src.Controlador;
 import src.Modelo.Cliente;
 import src.Modelo.JSON;
 
-import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +26,6 @@ public class Controlador extends JPanel implements KeyListener {
     private JFrame ventana;
     private JPanel panel;
     private String mensaje;
-    private JSONObject jsonObj;
 
     public static void main(String[] args) {
         Controlador controlador = new Controlador();
@@ -98,41 +96,24 @@ public class Controlador extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int b = e.getKeyCode();
         if (b == KeyEvent.VK_W) {
-            //System.out.println("presionó arriba");
-            //addMensaje(JSON.ARRIBA);
             mensaje = "presionó arriba";
+            enviarMensaje("presionó arriba");
         }
         else if (b == KeyEvent.VK_S) {
-            //enviar mensaje abajo
-            //System.out.println("presionó abajo");
-            mensaje = "presionó abajo";
+            mensaje = "presionó abajo";         
+            enviarMensaje(mensaje);
         }
         else if (b == KeyEvent.VK_D) {
-            //enviar mensaje derecha
-            //System.out.println("presionó derecha");
             mensaje = "presionó derecha";
+            enviarMensaje(mensaje);
         }
         else if (b == KeyEvent.VK_A) {
-            //enviar mensaje izquierda
-            //System.out.println("presionó izquierda");
             mensaje = "presionó izquierda";
+            enviarMensaje(mensaje);
         }
         else if (b == KeyEvent.VK_SPACE) {
-            //enviar mensaje accion
-            //System.out.println("presionó accion");
             mensaje = "presionó acción";
-        }
-
-    }
-
-
-    private void addMensaje(JSON json) {
-        if (mensaje.equals("")){
-            //crear encabezado
-        }
-        else {
-            
-
+            enviarMensaje(mensaje);
         }
 
     }
@@ -147,7 +128,7 @@ public class Controlador extends JPanel implements KeyListener {
             || b == KeyEvent.VK_SPACE){
             enviarMensaje(mensaje); 
             mensaje = "";  
-            this.jsonObj = null;
+            
         }
         // TODO Auto-generated method stub
 

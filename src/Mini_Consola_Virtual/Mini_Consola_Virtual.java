@@ -5,6 +5,7 @@ import src.Modelo.Consola;
 import src.Vista.Vista;
 
 public class Mini_Consola_Virtual {
+    
     public static void main(String[] args) {
         Consola consola = new Consola();
         Controlador controlador = new Controlador();
