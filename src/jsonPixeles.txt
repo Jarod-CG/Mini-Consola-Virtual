@@ -1,0 +1,35 @@
+{
+  "pixeles": [
+    {
+      "pos": {
+        "x": 5,
+        "y": 5
+      },
+      "color": "verde"
+    },
+    {
+      "pos": {
+        "x": 10,
+        "y": 0
+      },
+      "color": "rojo"
+    }
+  ],
+  "botones": [
+    {
+      "boton": "arriba"
+    },
+    {
+      "boton": "abajo"
+    },
+    {
+      "boton": "izquierda"
+    },
+    {
+      "boton": "derecha"
+    },
+    {
+      "boton": "accion"
+    }
+  ]
+}
