@@ -1,17 +1,21 @@
-package src.Vista;
+package Vista;
 
 //import javax.swing.JButton;
+import Modelo.ColorType;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import src.Modelo.IObserver;
-import src.Modelo.Servidor;
+import Modelo.IObserver;
+import Modelo.JSON;
+import Modelo.Servidor;
 
 import java.awt.*;
 import java.util.Random;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Vista extends JPanel implements IObserver   {
 
@@ -73,7 +77,7 @@ public class Vista extends JPanel implements IObserver   {
 
     private void createPanel(){
         this.panel = new JPanel();
-        this.panel.setBackground(Color.PINK);
+        this.panel.setBackground(Color.BLACK);
  
         createPixeles();
     }
@@ -95,19 +99,39 @@ public class Vista extends JPanel implements IObserver   {
 
     private Color getRandomColor(){
         Random rand = new Random();
+        int largo = ColorType.values().length;
+        int index = rand.nextInt(largo);
+        ColorType clr = ColorType.values()[index];
+        
         int R,G,B;
-        R = Math.abs(rand.nextInt()%255);
-        G = Math.abs(rand.nextInt()%255);
-        B = Math.abs(rand.nextInt()%255);
+        R = clr.getR();
+        G = clr.getG();
+        B = clr.getB();
         return new Color (R,G,B);
     }
 
 
     @Override
     public void notifyObserver(String mensaje) {
-        System.out.println("Recibido en vista");
-        System.out.println(mensaje);
+        
+        pintar(mensaje);
 
     }
+    
+    private void pintar(String str){
+        JSONObject json = new JSONObject(str);
+        JSONArray arr = (JSONArray) json.get(JSON.PIXELES.getStr());
+        for (int i = 0; i < arr.length(); i++) {
+            JSONObject pix = (JSONObject) arr.get(i);
+            JSONObject pos = (JSONObject) pix.get("pos");
+            JSONObject color = (JSONObject) pix.get("color");
+            int x = (int) pos.get("x");
+            int y = (int) pos.get("y");
+            Color clr = new Color(color.getInt("R"),color.getInt("G"),color.getInt("B"));
+            pixeles[y][x].setBackground(clr);
+        }
+    }
+    
+   
 
 }

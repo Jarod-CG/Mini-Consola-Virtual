@@ -1,4 +1,4 @@
-package src.Modelo;
+package Modelo;
 
 public interface IObservable {
     public void addObserver(IObserver observer);
