@@ -1,11 +1,14 @@
-package src.Controlador;
+package Controlador;
 
 
-import src.Modelo.Cliente;
-import src.Modelo.JSON;
+import Modelo.Cliente;
+import Modelo.JSON;
 
 
 import javax.swing.*;
+
+import org.json.JSONObject;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -95,32 +98,30 @@ public class Controlador extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int b = e.getKeyCode();
-        if (b == KeyEvent.VK_W) {
-            mensaje = "presionó arriba";
-            enviarMensaje("presionó arriba");
-        }
-        else if (b == KeyEvent.VK_S) {
-            mensaje = "presionó abajo";         
-            enviarMensaje(mensaje);
-        }
-        else if (b == KeyEvent.VK_D) {
-            mensaje = "presionó derecha";
-            enviarMensaje(mensaje);
-        }
-        else if (b == KeyEvent.VK_A) {
-            mensaje = "presionó izquierda";
-            enviarMensaje(mensaje);
-        }
-        else if (b == KeyEvent.VK_SPACE) {
-            mensaje = "presionó acción";
-            enviarMensaje(mensaje);
+        switch (b) {
+            case KeyEvent.VK_W:
+                enviarMensaje(createJson(JSON.ARRIBA));
+                break;
+            case KeyEvent.VK_S:
+                enviarMensaje(createJson(JSON.ABAJO));
+                break;
+            case KeyEvent.VK_D:
+                enviarMensaje(createJson(JSON.DERECHA));
+                break;
+            case KeyEvent.VK_A:
+                enviarMensaje(createJson(JSON.IZQUIERDA));
+                break;
+            case KeyEvent.VK_SPACE:
+                enviarMensaje(createJson(JSON.ACCION));
+                break;
+
         }
 
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int b = e.getKeyCode();
+        /*int b = e.getKeyCode();
         if (b == KeyEvent.VK_W 
             || b == KeyEvent.VK_S
             || b == KeyEvent.VK_D
@@ -129,7 +130,7 @@ public class Controlador extends JPanel implements KeyListener {
             enviarMensaje(mensaje); 
             mensaje = "";  
             
-        }
+        }*/
         // TODO Auto-generated method stub
 
     }
@@ -141,5 +142,12 @@ public class Controlador extends JPanel implements KeyListener {
     }
 
 
+    private String createJson (JSON j){
+        String str = "";
+        JSONObject json = new JSONObject();
+        json.put(JSON.BOTON.getStr(), j.getStr());
+        str = json.toString();
+        return str;
+    }
 
 }

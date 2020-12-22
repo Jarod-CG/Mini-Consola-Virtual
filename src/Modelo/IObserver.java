@@ -1,4 +1,4 @@
-package src.Modelo;
+package Modelo;
 
 public interface IObserver {
     public void notifyObserver(String mensaje);

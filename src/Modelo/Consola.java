@@ -1,4 +1,4 @@
-package src.Modelo;
+package Modelo;
 
 public class Consola implements IObserver{
     private Servidor servidor;

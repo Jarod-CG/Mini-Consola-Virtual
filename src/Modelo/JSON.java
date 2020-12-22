@@ -1,4 +1,4 @@
-package src.Modelo;
+package Modelo;
 
 public enum JSON {
     PIXELES ("pixeles")

@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,netbeans,visualstudiocode,java
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,netbeans,visualstudiocode,java
+# Created by https://www.toptal.com/developers/gitignore/api/windows,netbeans,java
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,netbeans,java
 
 ### Java ###
 # Compiled class file
@@ -37,17 +37,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/tasks.json
-!.vscode/launch.json
-*.code-workspace
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -74,4 +63,3 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,netbeans,visualstudiocode,java
