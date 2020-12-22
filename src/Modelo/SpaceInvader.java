@@ -113,10 +113,26 @@ public class SpaceInvader extends Consola {
     }
 
     private void actuar(String mensaje) {
+        
         JSONObject json = new JSONObject(mensaje);
-        despinto();
-        nave.mover((String) json.get(JSON.BOTON.getStr()));
-        enviarMatriz(nave.getBody(), nave.getPos());
+        //borrar disparos
+        
+        if (json.get(JSON.BOTON.getStr()).equals(JSON.ACCION.getStr())){
+            nave.disparar();
+           
+        }
+        else{
+            despinto();
+            nave.mover((String) json.get(JSON.BOTON.getStr()));
+            enviarMatriz(nave.getBody(), nave.getPos());
+        }
+        despintarDisparos();
+        nave.moverDisparos();
+        pintarDisparo();
+        
+
+        //poner disparos
+        
     }
 
     private void despinto() {
@@ -131,5 +147,24 @@ public class SpaceInvader extends Consola {
         }
         enviarMatriz(m, nave.getPos());
     }
+    
+    //los disparos si tiene valores correctos en su posiciones
+    private void despintarDisparos(){
+        int n = nave.getDisparos().size();
+        ColorType[][] m = new ColorType[tablero.length][tablero.length];
+        for (int[] disparo: nave.getDisparos()) {
+            m[disparo[1]][disparo[0]] = this.tablero[disparo[1]][disparo[0]];
+        }
+        enviarMatriz(m, new int[2]);
+    }
+    
+    private void pintarDisparo(){
+        ColorType[][] m = new ColorType[tablero.length][tablero.length];
+        for (int[] disparo: nave.getDisparos()) {
+            m[disparo[1]][disparo[0]] = ColorType.BLANCO;
+        }
+        enviarMatriz(m, new int[2]);
+    }
+    
 
 }

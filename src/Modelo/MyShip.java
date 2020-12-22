@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -12,9 +13,12 @@ import java.util.Random;
  * @author Jarod
  */
 public class MyShip extends Ship{
+    
+    private ArrayList<int[]> disparos;
 
     public MyShip(int[] pos) {
         super(pos);
+        disparos = new ArrayList();
         buildBody();
     }
     
@@ -93,6 +97,53 @@ public class MyShip extends Ship{
             pos[0]--;
         }
     }
+
+    
+    public void disparar() {
+        int[] p = getDisparo();
+        if (p != null) {
+            disparos.add(p);
+           
+        }
+    }
+    
+    private int[] getDisparo( ){
+        if (this.pos[0] - 1 <= 0 ){
+            return null;
+        }
+        else{
+            int [] n = {this.pos[0] +3 , this.pos[1]-1};
+            return n;
+        }
+        
+    }
+    
+    public void moverDisparos(){
+        int [] disparo;
+        ArrayList<int[]> remover = new ArrayList();
+        for (int i = 0; i < disparos.size(); i++) {
+            disparo = disparos.get(i);
+            if (disparo[1]-1<=0){
+                remover.add(disparo);
+            }
+            else{
+                disparo[1] = disparo[1]-1;
+            }
+        }
+        for (int i = 0; i < remover.size(); i++) {
+            disparos.remove(remover.get(i));
+        }
+    }
+
+    public ArrayList<int[]> getDisparos() {
+        return disparos;
+    }
+
+    public void setDisparos(ArrayList<int[]> disparos) {
+        this.disparos = disparos;
+    }
+    
+    
     
     
 }

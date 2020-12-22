@@ -24,7 +24,7 @@ public class Controlador extends JPanel implements KeyListener {
     //private Cliente cliente;
     private String IP = "127.0.0.1";
     //debe coincider con puerto de entrada en Consola
-    private int puertoSalida = 5000;
+    private int puertoSalida = 10000;
     private JButton [][] botones;
     private JFrame ventana;
     private JPanel panel;

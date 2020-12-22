@@ -38,7 +38,7 @@ public class Vista extends JPanel implements IObserver   {
     }
 
     public Vista () {
-        this.servidor = new Servidor(5001);//es el puerto de entrada
+        this.servidor = new Servidor(10001);//es el puerto de entrada
         this.servidor.addObserver(this);
         Thread t = new Thread(this.servidor);
         t.start();
