@@ -23,11 +23,11 @@ public class MyShip extends Ship{
     @Override
     protected void buildBody() {
         this.body = new ColorType[7][7];
-        for (int i = 0; i < body.length; i++) {
+        /*for (int i = 0; i < body.length; i++) {
             for (int j = 0; j < body[i].length; j++) {
                 body[i][j] = ColorType.NEGRO;
             }
-        }
+        }*/
         Random rand = new Random();
         int n = rand.nextInt(4);
         n= 0;
