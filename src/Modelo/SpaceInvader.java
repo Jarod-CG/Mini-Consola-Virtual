@@ -130,7 +130,7 @@ public class SpaceInvader extends Consola {
         nave.moverDisparos();
         pintarDisparo();
         
-
+        detectarEnemigo();
         //poner disparos
         
     }
@@ -166,5 +166,43 @@ public class SpaceInvader extends Consola {
         enviarMatriz(m, new int[2]);
     }
     
+    
+    private void detectarEnemigo(){
+        //por cada bala preguntar si esta sobre un color que no sea negro
+        ArrayList<int[]> remover = new ArrayList();
+        for (int[] disparo: nave.getDisparos()) {
+            if (!this.tablero[disparo[1]][disparo[0]].equals(ColorType.NEGRO)){
+                //detectar que enemigo es 
+                destruirEnemigos(disparo);
+                remover.add(disparo);
+            }
+        }
+        
+        for (int i = 0; i < remover.size(); i++) {
+            nave.destruyo(remover.get(i));
+        }
+    }
+    
+    private void destruirEnemigos(int[] disparo){
+        for(EnemyShip ship : enemigos){
+            if (ship.isIn(disparo)){
+                System.out.println("dentro");
+                ship.setAlive(false);
+                eliminarNave(ship);
+            }
+        }
+    }
+    
+    private void eliminarNave(EnemyShip ship){
+        int[] pos = ship.getPos();
+        ColorType[][] m = new ColorType[tablero.length][tablero.length];
+        for (int i = 0; i < ship.getBody().length; i++) {
+            for (int j = 0; j < ship.getBody()[i].length; j++) {
+                this.tablero[i+pos[1]][j+pos[0]] = ColorType.NEGRO;
+                m[i+pos[1]][j+pos[0]] = this.tablero[i+pos[1]][j+pos[0]];
+            }
+        }
+        enviarMatriz(m, new int[2]);
+    }
 
 }

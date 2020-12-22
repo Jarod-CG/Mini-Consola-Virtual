@@ -143,7 +143,9 @@ public class MyShip extends Ship{
         this.disparos = disparos;
     }
     
-    
+    public void destruyo(int[] disparo){
+        disparos.remove(disparo);
+    }
     
     
 }
