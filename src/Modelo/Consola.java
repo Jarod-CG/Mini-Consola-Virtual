@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Consola implements IObserver{
+public abstract class Consola implements IObserver{
     private Servidor servidor;
 
     //private Cliente cliente;
@@ -16,13 +16,7 @@ public class Consola implements IObserver{
     }
 
     @Override
-    public void notifyObserver(String mensaje) {
-        //System.out.println("----------------------- mensaje recibido ---------------------");
-        //System.err.println(mensaje);
-        //System.out.println("reenviar");
-        enviarMensaje("Reenvio : " + mensaje);
-
-    }
+    public abstract void notifyObserver(String mensaje);
 
     public void enviarMensaje(String mensaje) {
         Cliente c = new Cliente(IP, puertoSalida, mensaje);

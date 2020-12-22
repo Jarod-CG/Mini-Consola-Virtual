@@ -95,7 +95,20 @@ public class SpaceInvader extends Consola {
         
         
     }
+
+    @Override
+    public void notifyObserver(String mensaje) {
+        actuar(mensaje);
+    }
+
+    private void actuar(String mensaje) {
+        JSONObject json = new JSONObject(mensaje);
+        nave.mover((String) json.get(JSON.BOTON.getStr()));
+
+        enviarMatriz(nave.getBody(), nave.getPos());  
+    }
     
+
     
     
 }

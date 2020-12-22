@@ -54,5 +54,45 @@ public class MyShip extends Ship{
                 break;
         }
     }
+
+    public void mover(String str) {
+        if (str.equals(JSON.ARRIBA.getStr())){
+            moverArriba();
+        }
+        else if (str.equals(JSON.ABAJO.getStr())){
+            moverAbajo();
+        }
+        else if (str.equals(JSON.DERECHA.getStr())){
+            moverDerecha();
+        }
+        else if (str.equals(JSON.IZQUIERDA.getStr())){
+            moverIzquierda();
+        }
+        else if (str.equals(JSON.ACCION.getStr())){
+            
+        }
+    }
+    
+    private void moverArriba(){
+        if (pos[1]>1){
+            pos[1]--;
+        }
+    }
+    private void moverAbajo(){
+        if (pos[1]+7<49){
+            pos[1]++;
+        }
+    }
+    private void moverDerecha(){
+        if (pos[0]+7<49){
+            pos[0]++;
+        }
+    }
+    private void moverIzquierda(){
+        if (pos[0]>1){
+            pos[0]--;
+        }
+    }
+    
     
 }
