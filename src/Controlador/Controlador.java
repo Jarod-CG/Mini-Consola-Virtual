@@ -2,6 +2,7 @@ package Controlador;
 
 
 import Modelo.Cliente;
+import Modelo.ColorType;
 import Modelo.JSON;
 
 
@@ -24,7 +25,7 @@ public class Controlador extends JPanel implements KeyListener {
     //private Cliente cliente;
     private String IP = "127.0.0.1";
     //debe coincider con puerto de entrada en Consola
-    private int puertoSalida = 10000;
+    private int puertoSalida = 50000;
     private JButton [][] botones;
     private JFrame ventana;
     private JPanel panel;
@@ -55,7 +56,7 @@ public class Controlador extends JPanel implements KeyListener {
     private void createFrame(){
         this.ventana = new JFrame();
         this.ventana.setTitle("Controlador");//nombre de ventana
-        this.ventana.setSize(600,600);//tamaño de ventana
+        this.ventana.setSize(300,300);//tamaño de ventana
         this.ventana.setResizable(true);
         this.ventana.setLayout(new BorderLayout());
 
@@ -70,19 +71,25 @@ public class Controlador extends JPanel implements KeyListener {
 
 
     private void createBotones(){
-        System.out.println("crear botones");
+        
         int size = 3;
         int distance = 1;
         this.botones = new JButton[size][size];
         this.panel.setLayout(new GridLayout(size, size, distance, distance));//y,x,...,...
+        Color clr = new Color(ColorType.VINO.getR(),ColorType.VINO.getG(),ColorType.VINO.getB());
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 this.botones[i][j] = new JButton();
-                this.botones[i][j].setBackground(Color.RED);
+                this.botones[i][j].setBackground(clr);
                 //this.botones[i][j].setPreferredSize(new Dimension(50, 50));
                 this.panel.add(this.botones[i][j]);
             }
         }
+        clr = new Color(ColorType.NEGRO.getR(),ColorType.NEGRO.getG(),ColorType.NEGRO.getB());
+        botones[0][0].setBackground(clr);
+        botones[0][2].setBackground(clr);
+        botones[2][0].setBackground(clr);
+        botones[2][2].setBackground(clr);
     }
 
 
@@ -98,21 +105,27 @@ public class Controlador extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int b = e.getKeyCode();
+        Color clr = new Color(ColorType.NARANJA.getR(),ColorType.NARANJA.getG(),ColorType.NARANJA.getB());
         switch (b) {
             case KeyEvent.VK_W:
                 enviarMensaje(createJson(JSON.ARRIBA));
+                 this.botones[0][1].setBackground(clr);
                 break;
             case KeyEvent.VK_S:
                 enviarMensaje(createJson(JSON.ABAJO));
+                this.botones[2][1].setBackground(clr);
                 break;
             case KeyEvent.VK_D:
                 enviarMensaje(createJson(JSON.DERECHA));
+                this.botones[1][2].setBackground(clr);
                 break;
             case KeyEvent.VK_A:
                 enviarMensaje(createJson(JSON.IZQUIERDA));
+                this.botones[1][0].setBackground(clr);
                 break;
             case KeyEvent.VK_SPACE:
                 enviarMensaje(createJson(JSON.ACCION));
+                this.botones[1][1].setBackground(clr);
                 break;
 
         }
@@ -121,17 +134,26 @@ public class Controlador extends JPanel implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        /*int b = e.getKeyCode();
-        if (b == KeyEvent.VK_W 
-            || b == KeyEvent.VK_S
-            || b == KeyEvent.VK_D
-            || b == KeyEvent.VK_A
-            || b == KeyEvent.VK_SPACE){
-            enviarMensaje(mensaje); 
-            mensaje = "";  
-            
-        }*/
-        // TODO Auto-generated method stub
+        int b = e.getKeyCode();
+        Color clr = new Color(ColorType.VINO.getR(),ColorType.VINO.getG(),ColorType.VINO.getB());
+        switch (b) {
+            case KeyEvent.VK_W:
+                this.botones[0][1].setBackground(clr);
+                break;
+            case KeyEvent.VK_S:
+                this.botones[2][1].setBackground(clr);
+                break;
+            case KeyEvent.VK_D:
+                this.botones[1][2].setBackground(clr);
+                break;
+            case KeyEvent.VK_A:
+                this.botones[1][0].setBackground(clr);
+                break;
+            case KeyEvent.VK_SPACE:
+                this.botones[1][1].setBackground(clr);
+                break;
+
+        }
 
     }
 

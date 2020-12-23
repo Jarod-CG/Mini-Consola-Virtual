@@ -186,7 +186,6 @@ public class SpaceInvader extends Consola {
     private void destruirEnemigos(int[] disparo){
         for(EnemyShip ship : enemigos){
             if (ship.isIn(disparo)){
-                System.out.println("dentro");
                 ship.setAlive(false);
                 eliminarNave(ship);
             }

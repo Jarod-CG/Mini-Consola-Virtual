@@ -36,15 +36,7 @@ public abstract class Ship {
         boolean retorno = false;
         if ((pos[0] <= p[0] && pos[0] + body[0].length > p[0]) &&
             (pos[1] <= p[1] && pos[1] + body.length > p[1])){
-            System.out.println("---------------------------");
-            System.out.println("x nave : " + pos[0]);
-            System.out.println("y nave : " + pos[1]);
-            System.out.println("x p : " + p[0]);
-            System.out.println("y p : " + p[1]);
-            System.out.println(pos[0] +" <= " + p[0] + " = "+(pos[0] <= p[0] ));
-            System.out.println(pos[0] + body[0].length +" >" + p[0] + " = "+(pos[0] + body[0].length > p[0]));
-            System.out.println(pos[1] +" <= " +  p[1] + " = "+(pos[1] <= p[1]));
-            System.out.println(pos[1] + body.length +" > " + p[1] + " = "+ (pos[1] + body.length > p[1]));
+            
             retorno = true;
         }
         return retorno;

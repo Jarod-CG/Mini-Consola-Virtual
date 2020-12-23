@@ -38,7 +38,7 @@ public class Vista extends JPanel implements IObserver   {
     }
 
     public Vista () {
-        this.servidor = new Servidor(10001);//es el puerto de entrada
+        this.servidor = new Servidor(50001);//es el puerto de entrada
         this.servidor.addObserver(this);
         Thread t = new Thread(this.servidor);
         t.start();
@@ -113,7 +113,7 @@ public class Vista extends JPanel implements IObserver   {
 
     @Override
     public void notifyObserver(String mensaje) {
-        
+        //System.out.println(mensaje);
         pintar(mensaje);
 
     }

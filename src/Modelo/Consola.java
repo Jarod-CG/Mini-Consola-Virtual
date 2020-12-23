@@ -6,10 +6,10 @@ public abstract class Consola implements IObserver{
     //private Cliente cliente;
     private String IP = "127.0.0.1";
     //debe coincider con puerto de entrada en Consola
-    private int puertoSalida = 10001;//puerto de salida para Vista
+    private int puertoSalida = 50001;//puerto de salida para Vista
 
     public Consola (){
-        this.servidor = new Servidor(10000);//es el puerto de entrada
+        this.servidor = new Servidor(50000);//es el puerto de entrada
         this.servidor.addObserver(this);
         Thread t = new Thread(this.servidor);
         t.start();
