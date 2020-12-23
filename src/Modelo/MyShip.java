@@ -57,14 +57,7 @@ public class MyShip extends Ship{
             case 3:
                 break;
         }
-        for (int i = 0; i < body.length; i++) {
-            for (int j = 0; j < body[i].length; j++) {
-                if (body[i][j] == null){
-                    body[i][j] = ColorType.ROSADO;
-                }
-            }
-            
-        }
+        
     }
 
     public void mover(String str) {

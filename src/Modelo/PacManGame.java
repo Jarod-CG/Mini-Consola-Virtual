@@ -336,16 +336,31 @@ public class PacManGame extends Consola {
 
     private void moverArriba() {
         int[] pos = pacman.getPos();
-        if (matrizTablero[pos[1] - 1][pos[0]] != ColorType.NEGRO.getNum()) {
+        int d = pacman.getBody().length;
+        boolean mueve = true;
+        for (int i = 0; i < d; i++) {
+            if (!(matrizTablero[pos[1] - 1][pos[0] + i] != ColorType.NEGRO.getNum())) {
+                mueve = false;
+                break;
+
+            }
+        }
+        if (mueve) {
             pacman.moverArriba();
         }
-
     }
 
     private void moverAbajo() {
         int[] pos = pacman.getPos();
         int d = pacman.getBody().length;
-        if (matrizTablero[pos[1] + d][pos[0]] != ColorType.NEGRO.getNum()) {
+        boolean mueve = true;
+        for (int i = 0; i < d; i++) {
+            if (!(matrizTablero[pos[1] + d][pos[0]+i] != ColorType.NEGRO.getNum())){
+                mueve = false;
+                break;
+            }
+        }
+        if (mueve){
             pacman.moverAbajo();
         }
     }
@@ -353,14 +368,29 @@ public class PacManGame extends Consola {
     private void moverDerecha() {
         int[] pos = pacman.getPos();
         int d = pacman.getBody().length;
-        if (matrizTablero[pos[1]][pos[0] + d] != ColorType.NEGRO.getNum()) {
+        boolean mueve = true;
+        for (int i = 0; i < d; i++) {
+            if (!(matrizTablero[pos[1]+i][pos[0] + d] != ColorType.NEGRO.getNum())){
+                mueve = false;
+                break;
+            }
+        }
+        if (mueve) {
             pacman.moverDerecha();
         }
     }
 
     private void moverIzquierda() {
         int[] pos = pacman.getPos();
-        if (matrizTablero[pos[1]][pos[0] - 1] != ColorType.NEGRO.getNum()) {
+        int d = pacman.getBody().length;
+        boolean mueve = true;
+        for (int i = 0; i < d; i++) {
+            if (!(matrizTablero[pos[1]+i][pos[0] - 1] != ColorType.NEGRO.getNum())){
+                mueve = false;
+                break;
+            }
+        }
+        if (mueve) {
             pacman.moverIzquierda();
         }
     }
