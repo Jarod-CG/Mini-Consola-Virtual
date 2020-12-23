@@ -38,7 +38,7 @@ public class Vista extends JPanel implements IObserver   {
     }
 
     public Vista () {
-        this.servidor = new Servidor(50001);//es el puerto de entrada
+        this.servidor = new Servidor(5001);//es el puerto de entrada
         this.servidor.addObserver(this);
         Thread t = new Thread(this.servidor);
         t.start();
@@ -127,6 +127,7 @@ public class Vista extends JPanel implements IObserver   {
             JSONObject color = (JSONObject) pix.get("color");
             int x = (int) pos.get("x");
             int y = (int) pos.get("y");
+            //System.out.println("x : " +x + " y : " + y + " color : " + color);
             Color clr = new Color(color.getInt("R"),color.getInt("G"),color.getInt("B"));
             pixeles[y][x].setBackground(clr);
         }

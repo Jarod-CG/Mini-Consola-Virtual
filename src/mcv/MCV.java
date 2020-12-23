@@ -7,6 +7,7 @@ package mcv;
 
 import Controlador.Controlador;
 import Modelo.Consola;
+import Modelo.PacManGame;
 import Modelo.SpaceInvader;
 import Vista.Vista;
 
@@ -24,7 +25,7 @@ public class MCV {
         
         Controlador controlador = new Controlador();
         Vista vista = new Vista();
-        Consola consola = new SpaceInvader(50);
+        Consola consola = new PacManGame(50);
         
     }
     
