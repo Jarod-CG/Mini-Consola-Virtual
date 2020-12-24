@@ -25,8 +25,8 @@ public class MCV {
         
         Controlador controlador = new Controlador();
         Vista vista = new Vista();
-        Consola consola = new PacManGame(50);
-        //Consola consola = new SpaceInvader(50);
+        //Consola consola = new PacManGame(50);
+        Consola consola = new SpaceInvader(50);
         
     }
     
