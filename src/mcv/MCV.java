@@ -21,12 +21,12 @@ public class MCV {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Consola consola = new Consola();
+        //Consola consola = new Consola() {};
         
         Controlador controlador = new Controlador();
         Vista vista = new Vista();
-        //Consola consola = new PacManGame(50);
-        Consola consola = new SpaceInvader(50);
+        Consola consola = new PacManGame(50);
+        //Consola consola = new SpaceInvader(50);
         
     }
     

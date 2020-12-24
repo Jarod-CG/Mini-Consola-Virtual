@@ -16,7 +16,9 @@ public abstract class Consola implements IObserver{
     }
 
     @Override
-    public abstract void notifyObserver(String mensaje);
+    public void notifyObserver(String mensaje){
+        
+    }
 
     public void enviarMensaje(String mensaje) {
         Cliente c = new Cliente(IP, puertoSalida, mensaje);

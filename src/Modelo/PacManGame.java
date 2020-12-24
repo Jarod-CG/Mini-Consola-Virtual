@@ -74,7 +74,7 @@ public class PacManGame extends Consola {
                 if (tablero[i][j].equals(ColorType.NEGRO)) {
                     matrizTablero[i][j] = ColorType.NEGRO.getNum();
                 } else {
-                    matrizTablero[i][j] = ColorType.CELESTE.getNum();
+                    matrizTablero[i][j] = ColorType.ROSADO.getNum();
                 }
             }
         }
@@ -286,7 +286,7 @@ public class PacManGame extends Consola {
             JSONObject color = new JSONObject();
             punto.put("x", mBolitas[i][0]);
             punto.put("y", mBolitas[i][1]);
-            ColorType clr = ColorType.ROSADO;
+            ColorType clr = ColorType.MORADOOSCURO;
             color.put("R", clr.getR());
             color.put("G", clr.getG());
             color.put("B", clr.getB());
