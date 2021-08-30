@@ -15,6 +15,7 @@ public class Servidor extends AbstractObservable implements Runnable {
     public Servidor(int puerto) {
         super();
         this.puerto = puerto;
+        //comentario
         
     }
 
