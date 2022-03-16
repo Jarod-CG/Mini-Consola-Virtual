@@ -62,4 +62,10 @@ public class Servidor extends AbstractObservable implements Runnable {
         }
 
     }
+
+   public void addObserver(IObserver observer){
+       if (!super.observers.contains(observer)){
+            super.observers.add(observer);
+       }
+    }
 }

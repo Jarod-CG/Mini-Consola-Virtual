@@ -3,15 +3,14 @@ package Modelo;
 import java.util.ArrayList;
 
 public abstract class AbstractObservable implements IObservable {
-    private ArrayList<IObserver> observers;
+    public ArrayList<IObserver> observers;
 
     public AbstractObservable() {
         this.observers = new ArrayList<IObserver>();
     }
     
-    public void addObserver(IObserver observer){
-        observers.add(observer);
-    }
+    public abstract void addObserver(IObserver observer);
+    
     public void removerObserver(IObserver observer){
         observers.remove(observer);
     }
