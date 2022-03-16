@@ -17,7 +17,7 @@ public abstract class Consola implements IObserver{
 
     @Override
     public void notifyObserver(String mensaje){
-        
+        System.out.println("hola");
     }
 
     public void enviarMensaje(String mensaje) {
